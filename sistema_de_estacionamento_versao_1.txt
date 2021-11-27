@@ -10,7 +10,35 @@ class Program {
   }
 
   public static void Main(string[] args) {
+    int escolha, linha, coluna;
+    bool loop = true;
     string[,] matriz = new string[5,5];
-    getParked(matriz);
+    string[,] placas = new string[5,5];
+    do {
+      bool miniloop = true, miniloop2 = true;
+      getParked(matriz);
+      Console.WriteLine("(1) Digite 1 para adicionar um carro a uma vaga");
+      escolha = int.Parse(Console.ReadLine());
+      if (escolha == 1){
+        Console.Clear();
+        do {
+          getParked(matriz);
+          Console.WriteLine("Escolha uma linha:");
+          linha = int.Parse(Console.ReadLine());
+
+          Console.WriteLine("Escolha uma coluna:");
+          coluna = int.Parse(Console.ReadLine());
+
+          Console.WriteLine("Escreva a placa do carro que vai ocupar a vaga:");
+          placas[linha - 1,coluna - 1] = Console.ReadLine();
+          matriz[linha - 1,coluna - 1] = "O";
+          Console.Clear();
+          break;
+      }
+      else{
+        Console.Clear();
+        Console.WriteLine("Esse botão não existe!");
+      }
+    } while (loop == true);
   }
 }
