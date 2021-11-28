@@ -20,6 +20,7 @@ class Program {
       Console.WriteLine("(1) Digite 1 para adicionar um carro a uma vaga");
       Console.WriteLine("(2) Digite 2 para remover um carro de uma vaga");
       Console.WriteLine("(3) Digite 3 para ver todos os carros no estacionamento");
+      Console.WriteLine("(4) Digite 4 para sair");
       escolha = int.Parse(Console.ReadLine());
       if (escolha == 1){
         Console.Clear();
@@ -48,7 +49,7 @@ class Program {
           else {
             Console.WriteLine("Escreva a placa do carro que vai ocupar a vaga:");
             placas[linha - 1,coluna - 1] = Console.ReadLine();
-            matriz[linha - 1,coluna - 1] = "O";
+            matriz[linha - 1,coluna - 1] = "⬤";
             Console.Clear();
             break;
           }
@@ -94,6 +95,9 @@ class Program {
             }
           }
         }
+      }
+      else if (escolha == 4) {
+        break;
       }
       else{
         Console.Clear();
