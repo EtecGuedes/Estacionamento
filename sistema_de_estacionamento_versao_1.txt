@@ -23,17 +23,34 @@ class Program {
         Console.Clear();
         do {
           getParked(matriz);
+          Console.WriteLine("➥ Digite 0 para voltar ao menu\n");
           Console.WriteLine("Escolha uma linha:");
           linha = int.Parse(Console.ReadLine());
-
+          if (linha == 0) {
+            Console.Clear();
+            break;
+          }
           Console.WriteLine("Escolha uma coluna:");
           coluna = int.Parse(Console.ReadLine());
-
-          Console.WriteLine("Escreva a placa do carro que vai ocupar a vaga:");
-          placas[linha - 1,coluna - 1] = Console.ReadLine();
-          matriz[linha - 1,coluna - 1] = "O";
-          Console.Clear();
-          break;
+          if (linha == 0) {
+            break;
+          }
+          if (!(linha <= 5 && linha >= 1) || !(coluna <= 5 && coluna >= 1)) {
+            Console.Clear();
+            Console.WriteLine("A linha ou coluna digitada não existe...");
+          }
+          else if (placas[linha - 1, coluna - 1] != null) {
+            Console.Clear();
+            Console.WriteLine("A vaga já está ocupada.");
+          }
+          else {
+            Console.WriteLine("Escreva a placa do carro que vai ocupar a vaga:");
+            placas[linha - 1,coluna - 1] = Console.ReadLine();
+            matriz[linha - 1,coluna - 1] = "O";
+            Console.Clear();
+            break;
+          }
+        } while (miniloop == true);
       }
       else{
         Console.Clear();
